@@ -198,6 +198,8 @@ private:
     bool processMessage(const castchannel::CastMessage &msg);
     void queueMessage( QueueableMessages msg );
 
+    void setVolume(float vol);
+
     void setPauseState(bool paused, mtime_t delay);
     bool isFinishedPlaying();
     bool isStateError() const;
@@ -236,6 +238,8 @@ private:
     static void set_pause_state(void*, bool paused, mtime_t delay);
 
     static void set_meta(void*, vlc_meta_t *p_meta);
+
+    static void set_volume(void *, float vol);
 
     void prepareHttpArtwork();
 
@@ -305,6 +309,8 @@ private:
 
     /* Heartbeat */
     uint8_t m_pingRetriesLeft;
+
+    float m_volume;
 };
 
 #endif /* VLC_CHROMECAST_H */
